@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Dashboard</title>
+  <link rel="icon" type="img/png" href="images/hng-favicon.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <style>
+    .sidepanel {
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background: linear-gradient(180deg, #D1F0F6 0%, #11CDEF 100%);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidepanel a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidepanel a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidepanel .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      color: white;
+    }
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+  </style>
+  <button class="openbtn  d-sm-block d-md-none d-lg-none" onclick="openNav()">☰</button>
+
+  <div class="container-fluid bg-light">
+
+    <div class="row pt-5">
+      <div class="col-md-2 mx-0">
+        <section id="sidebar" class="d-none d-sm-none d-md-block d-lg-block px-3">
+          <div class="upper">
+            <img src="https://res.cloudinary.com/jaycodist/image/upload/v1570722683/mentors-first_qlquq9.png"
+              height="100px">
+            <div id="username">Seyi Onifade</div>
+            <em>Admin</em>
+          </div>
+          <nav id="lower">
+            <a href="#">Mentors</a>
+            <a href="#">Users</a>
+            <select>
+              <option selected="selected" disabled="disabled">Overview</option>
+              <option value="0">Mentors</option>
+              <option value="1">Users</option>
+            </select>
+            <a href="#">Advanced</a>
+            <a href="#">Logout</a>
+          </nav>
+        </section>
+      </div>
+      <div class="col-md-6 col-sm-7">
+        <!-- <main> -->
+        <h1>Overview</h1>
+
+        <div class="card p-4">
+          <section id="overview-section">
+            <h2>Registered Interns</h2>
+            <section id="intern-section">
+              <!-- Populated by `js/dashboard.js` -->
+            </section>
+          </section>
+
+          <button id="export" class="btn mt-4">Export to Spreadsheet</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-5 mt-5">
+        <div class="card p-4">
+          <section id="details-section">
+            <h2>Intern application details</h2>
+            <em id="no-intern">No intern selected</em>
+            <br />
+            <p>Name: <span id="details-name"></span></p>
+            <p>Email: <span id="details-email"></span></p>
+            <p>Age: <span id="details-age"></span></p>
+            <p>Phone Number: <span id="details-number"></span></p>
+            <p>Track of interest: <span id="details-track"></span></p>
+            <p>CV link: <span id="details-CV-link"></span></p>
+            <p>State of residence: <span id="details-state-of-residence"></span></p>
+          </section>
+        </div>
+      </div>
+      <!-- </main> -->
+
+    </div>
+  </div>
+
+
+
+  <div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div class="upper">
+      <img src="https://res.cloudinary.com/jaycodist/image/upload/v1570722683/mentors-first_qlquq9.png" height="100px">
+      <div id="username">Seyi Onifade</div>
+      <em>Admin</em>
+    </div>
+    <nav id="lower">
+      <a href="#">Mentors</a>
+      <a href="#">Users</a>
+      <select>
+        <option selected="selected" disabled="disabled">Overview</option>
+        <option value="0">Mentors</option>
+        <option value="1">Users</option>
+      </select>
+      <a href="#">Advanced</a>
+      <a href="#">Logout</a>
+    </nav>
+  </div>
+
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="dashboard.js"></script>
+<script>
+  function openNav() {
+    document.getElementById("mySidepanel").style.width = "220px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidepanel").style.width = "0";
+  }
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
